@@ -1,0 +1,16 @@
+services:
+    # Default configuration for services in your bundle
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # Makes classes in the CmsHealthProject namespace available to be used as services
+    CmsHealthProject\:
+        resource: '../src/'
+        exclude: '../src/{DependencyInjection,Entity,Event,Tests,Kernel.php}'
+
+    # Configure specific services explicitly if needed
+    CmsHealthProject\Service\AuthService:
+        arguments:
+            $secretToken: '%health_sulu.access_token%'

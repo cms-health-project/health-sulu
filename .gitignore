@@ -38,15 +38,20 @@
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
+/.phpunit.cache
 
 # Build data
 /build/
 
-# Composer PHAR
+# Composer
 /composer.phar
+/composer.lock
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# PhpStorm
+.idea
