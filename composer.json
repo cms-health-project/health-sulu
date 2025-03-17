@@ -12,7 +12,7 @@
     },
     "require": {
         "php": "^8.2",
-        "cms-health-project/serializable-reference-implementation": "dev-main",
+        "cms-health-project/serializable-reference-implementation": "^0.0.5",
         "handcraftedinthealps/rest-routing-bundle": "^1.0",
         "sulu/sulu": "^2.0",
         "symfony/dependency-injection": "^4.4 || ^5.0 || ^6.0 || ^7.0",

@@ -10,7 +10,6 @@ use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Query\QueryBuilder;
 use LogicException;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Throwable;
@@ -85,13 +84,19 @@ final class LastUserLogin
             $lastLoginValue = $lastLogin?->format('Y-m-d H:i:s') ?? 'never';
 
             $checkResult = new CheckResult(
-                self::CHECK_COMPONENT_ID, 'system', $checkStatus, $now, $lastLoginValue, self::OBSERVED_UNIT, ''
+                $checkStatus,
+                self::CHECK_COMPONENT_ID,
+                'system',
+                $now,
+                $lastLoginValue,
+                self::OBSERVED_UNIT,
+                ''
             );
         } catch (Throwable $e) {
             $checkResult = new CheckResult(
+                CheckResultStatus::Fail,
                 self::CHECK_COMPONENT_ID,
                 'system',
-                CheckResultStatus::Fail,
                 $now,
                 $lastLoginValue ?? null,
                 self::OBSERVED_UNIT,

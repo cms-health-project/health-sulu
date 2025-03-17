@@ -25,7 +25,7 @@ Add the bundle to your `config/bundles.php` file:
 ```php
 return [
     // ...existing bundles
-    YourVendor\HealthSuluBundle\HealthSuluBundle::class => ['all' => true],
+    CmsHealthProject\HealthSuluBundle::class => ['all' => true],
 ];
 ```
 
@@ -37,8 +37,9 @@ Create a new file `config/routes/sulu_health.yaml` (or add to an existing routin
 sulu_health.status:
     path: /health/status
     defaults:
-        _controller: YourVendor\HealthSuluBundle\Controller\HealthCheckController::healthStatus
+        _controller: CmsHealthProject\Controller\HealthCheckController::healthStatus
         _requestAnalyzer: false
+
 ```
 
 ### 4. Configure the Bundle (Optional)
